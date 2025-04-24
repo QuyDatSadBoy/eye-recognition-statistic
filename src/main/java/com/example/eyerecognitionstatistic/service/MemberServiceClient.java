@@ -1,4 +1,5 @@
-package com.example.eyerecognitionstatistic.client;
+package com.example.eyerecognitionstatistic.service;
+
 
 import com.example.eyerecognitionstatistic.model.Member;
 import com.example.eyerecognitionstatistic.model.RecognitionEvent;
@@ -99,7 +100,7 @@ public class MemberServiceClient {
      * @param endDate Ngày kết thúc
      * @return Số lượng nhận dạng thành công
      */
-    public Long countSuccessfulEventsByMemberIdAndDateRange(Integer memberId, Date startDate, Date endDate) {
+    public Integer countSuccessfulEventsByMemberIdAndDateRange(Integer memberId, Date startDate, Date endDate) {
         String url = UriComponentsBuilder.fromHttpUrl(employeeServiceUrl + "/events/member/" + memberId + "/count")
                 .queryParam("startDate", startDate.toInstant())
                 .queryParam("endDate", endDate.toInstant())
@@ -108,12 +109,20 @@ public class MemberServiceClient {
         try {
             Map<String, Object> response = restTemplate.getForObject(url, Map.class);
             if (response != null && response.containsKey("successCount")) {
-                return Long.valueOf(response.get("successCount").toString());
+                Object successCount = response.get("successCount");
+                if (successCount instanceof Integer) {
+                    return (Integer) successCount;
+                } else if (successCount instanceof Long) {
+                    return ((Long) successCount).intValue();
+                } else if (successCount instanceof Double) {
+                    return ((Double) successCount).intValue();
+                }
+                return Integer.parseInt(successCount.toString());
             }
-            return 0L;
+            return 0;
         } catch (Exception e) {
             System.err.println("Lỗi khi đếm số lượng nhận dạng: " + e.getMessage());
-            return 0L;
+            return 0;
         }
     }
 
@@ -123,7 +132,7 @@ public class MemberServiceClient {
      * @param endDate Ngày kết thúc
      * @return Map chứa thống kê (memberId -> số lần nhận dạng)
      */
-    public Map<String, Long> getRecognitionStatsByDateRange(Date startDate, Date endDate) {
+    public Map<String, Integer> getRecognitionStatsByDateRange(Date startDate, Date endDate) {
         String url = UriComponentsBuilder.fromHttpUrl(employeeServiceUrl + "/events/stats/date-range")
                 .queryParam("startDate", startDate.toInstant())
                 .queryParam("endDate", endDate.toInstant())

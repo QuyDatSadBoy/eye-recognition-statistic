@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class EyeRecognitionStatisticApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(EyeRecognitionStatisticApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(EyeRecognitionStatisticApplication.class, args);
+    }
 
 }
