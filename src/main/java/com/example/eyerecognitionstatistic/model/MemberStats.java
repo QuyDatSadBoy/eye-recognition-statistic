@@ -17,6 +17,6 @@ public class MemberStats {
     private String fullName;
     private String department;
     private String email;
-    private Integer successfulRecognitions; // Đã sửa từ Long sang Integer
+    private Integer successfulRecognitions;
     private Float averageAccuracy;
 }

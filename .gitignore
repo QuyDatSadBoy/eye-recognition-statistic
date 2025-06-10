@@ -1,3 +1,4 @@
+# === SPRING BOOT & MAVEN ===
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
@@ -31,3 +32,130 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# === JAVA ===
+*.class
+*.log
+*.ctxt
+.mtj.tmp/
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+hs_err_pid*
+
+# === DATABASE ===
+*.db
+*.sqlite
+*.sqlite3
+*.h2.db
+
+# === LOGS ===
+logs/
+*.log
+*.log.*
+/log/
+/logs/
+
+# === TEMPORARY FILES ===
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# === ENVIRONMENT & CONFIG ===
+.env
+.env.local
+.env.*.local
+application-local.properties
+application-dev.properties
+application-prod.properties
+config/application-local.yml
+config/application-dev.yml
+config/application-prod.yml
+
+# === SECURITY ===
+*.pem
+*.key
+*.crt
+*.p12
+*.jks
+keystore/
+secrets/
+
+# === DOCUMENTATION ===
+docs/build/
+site/
+
+# === TESTING ===
+.pytest_cache/
+coverage/
+*.coverage
+test-results/
+allure-results/
+
+# === DEPLOYMENT ===
+docker-compose.override.yml
+.dockerignore
+Dockerfile.local
+k8s/local/
+helm/values-local.yaml
+
+# === BACKUP FILES ===
+*.bak
+*.backup
+*.old
+*.orig
+
+# === PACKAGE MANAGERS ===
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# === SYSTEM FILES ===
+.fuse_hidden*
+.Trash-*
+.nfs*
+
+# === EDITOR CONFIG ===
+*.sublime-project
+*.sublime-workspace
+.vscode/launch.json
+.vscode/tasks.json
+.vscode/settings.json
+*.code-workspace
+
+# === PROFILING ===
+*.hprof
+*.prof
+
+# === MAVEN ===
+dependency-reduced-pom.xml
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.properties
+
+# === GRADLE ===
+.gradle/
+gradle-app.setting
+!gradle-wrapper.jar
+!gradle-wrapper.properties
+
+# === SPRING BOOT SPECIFIC ===
+spring-boot-starter-actuator.log
+application.pid
+banner.txt
+
+# === CUSTOM APPLICATION FILES ===
+uploads/
+downloads/
+data/
+storage/
+cache/
+temp/
